@@ -14,6 +14,8 @@ jobs:
       - run:
           name: Run tests 
           command: dotnet test --no-build --logger "trx;LogFileName=../../../xunit-output.xml"
+      - store_artifacts:
+          path: xunit-output.xml
 
       # Convert xUnit output to JUnit output, as described at
       
