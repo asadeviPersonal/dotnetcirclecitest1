@@ -13,10 +13,10 @@ jobs:
           command: dotnet build 
       - run:
           name: Run tests 
-#           command: dotnet test --no-build --logger "trx;LogFileName=/root/project/UnitTestProject1/xunit-output.xml"
-          command: dotnet test -c Debug "--logger:Console;verbosity=minimal" --diag:./bin/default/log.txt
+          command: dotnet test --no-build --logger "trx;LogFileName=/root/project/UnitTestProject1/xunit-output.xml"
+#           command: dotnet test -c Debug "--logger:Console;verbosity=minimal" --diag:./bin/default/log.txt
       - store_artifacts:
-          path: ./bin/default
+          path: /root/project/UnitTestProject1
           when: always
 #       - store_artifacts:
 #           path: /root/project/UnitTestProject1/xunit-output.xml
