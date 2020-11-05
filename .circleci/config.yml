@@ -13,7 +13,7 @@ jobs:
           command: dotnet build 
       - run:
           name: Run tests 
-          command: dotnet test --no-build --logger "trx;LogFileName=xunit-output.xml"
+          command: dotnet test --no-build --logger "trx;LogFileName=/root/project/UnitTestProject1/xunit-output.xml"
       - store_artifacts:
           path: /root/project/UnitTestProject1/TestResults/xunit-output.xml
 
