@@ -13,13 +13,15 @@ jobs:
           command: dotnet build 
       - run:
           name: Run tests 
-          command: dotnet test --no-build --logger "trx;LogFileName=/root/project/UnitTestProject1/xunit-output.xml"
-#           command: dotnet test -c Debug "--logger:Console;verbosity=minimal" --diag:./bin/default/log.txt
+          command: dotnet test --no-build --logger "trx;LogFileName=/root/project/UnitTestProject1/../../xunit-output.xml"
       - store_artifacts:
-          path: /root/project/UnitTestProject1
+          path: /root/project/UnitTestProject1../../
           when: always
-#       - store_artifacts:
-#           path: /root/project/UnitTestProject1/xunit-output.xml
+      - run:
+          name: coverage
+          command: dotnet.exe test -v n --results-directory:test_coverage --collect:"Code Coverage"
+      - store_artifacts:
+          path: /root/project/test_coverage/
 
       # Convert xUnit output to JUnit output, as described at
       
